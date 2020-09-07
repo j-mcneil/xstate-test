@@ -19,6 +19,30 @@ const lightMachine = Machine({
         }
       }
     },
+    yellow: {
+      entry: send('TURN_RED', { delay: 2500 }),
+      on: {
+        'TURN_RED': 'red'
+      },
+      meta: {
+        test: async (page: Page) => {
+          await page.waitFor('.traffic-light__light--active:nth-child(2)');
+          await page.waitFor('button:disabled');
+        },
+      }
+    },
+    green: {
+      entry: send('TURN_YELLOW', { delay: 5000 }),
+      on: {
+        'TURN_YELLOW': 'yellow'
+      },
+      meta: {
+        test: async (page: Page) => {
+          await page.waitFor('.traffic-light__light--active:nth-child(3)');
+          await page.waitFor('button:disabled');
+        }
+      }
+    }
   }
   // todo: finish configuring the machine to model the behavior of the application with test metadata
   // https://xstate.js.org/docs/packages/xstate-test/#quick-start
