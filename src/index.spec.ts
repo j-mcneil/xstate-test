@@ -7,6 +7,9 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 const lightMachine = Machine({
   id: 'light',
   initial: 'red',
+  context:{
+    timesRun: 0,
+  },
   states: {
     red: {
       on: {
@@ -32,7 +35,12 @@ const lightMachine = Machine({
       }
     },
     green: {
-      entry: send('TURN_YELLOW', { delay: 5000 }),
+      entry: [
+        assign({
+          timesRun: (context: any, event) => context.timesRun + 1
+        }),
+        send('TURN_YELLOW', { delay: 5000 }),
+      ],
       on: {
         'TURN_YELLOW': 'yellow'
       },
