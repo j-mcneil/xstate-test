@@ -1,0 +1,31 @@
+{
+  "name": "2020-tech-summit-xstate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "jasmine-ts --config=src/jasmine.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "xstate": "^4.11.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.5.12",
+    "@types/puppeteer": "^3.0.1",
+    "@types/react": "^16.9.46",
+    "@xstate/test": "^0.4.1",
+    "jasmine": "^3.6.1",
+    "jasmine-spec-reporter": "^5.0.2",
+    "jasmine-ts": "^0.3.0",
+    "parcel-bundler": "^1.12.4",
+    "puppeteer": "^5.2.1",
+    "sass": "^1.26.10",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
